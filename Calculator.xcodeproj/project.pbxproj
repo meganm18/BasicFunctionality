@@ -15,6 +15,7 @@
 		13595CE624B92D97004D2608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13595CE424B92D97004D2608 /* LaunchScreen.storyboard */; };
 		13595CF124B92D98004D2608 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13595CF024B92D98004D2608 /* CalculatorTests.swift */; };
 		13595CFC24B92D98004D2608 /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13595CFB24B92D98004D2608 /* CalculatorUITests.swift */; };
+		13595D0E24BCAD66004D2608 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13595D0D24BCAD66004D2608 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		13595CF724B92D98004D2608 /* CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13595CFB24B92D98004D2608 /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		13595CFD24B92D98004D2608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13595D0D24BCAD66004D2608 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				13595CDD24B92D6E004D2608 /* ContentView.swift */,
 				13595CDF24B92D97004D2608 /* Assets.xcassets */,
 				13595CE424B92D97004D2608 /* LaunchScreen.storyboard */,
+				13595D0D24BCAD66004D2608 /* ViewController.swift */,
 				13595CE724B92D97004D2608 /* Info.plist */,
 				13595CE124B92D97004D2608 /* Preview Content */,
 			);
@@ -269,6 +272,7 @@
 			files = (
 				13595CDA24B92D6E004D2608 /* AppDelegate.swift in Sources */,
 				13595CDC24B92D6E004D2608 /* SceneDelegate.swift in Sources */,
+				13595D0E24BCAD66004D2608 /* ViewController.swift in Sources */,
 				13595CDE24B92D6E004D2608 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
