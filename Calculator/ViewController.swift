@@ -37,15 +37,18 @@ struct ViewController: View {
                     .bold()
                     .foregroundColor(.white)
                     .scaleEffect(3)
+                    .padding(.all, 40)
                 
                 Spacer()
                 
                 //Current Result
                 if(done) {
                     Text(String(prevNum1))
+                        .padding(.all, 20)
                 }
                 else{
                     Text(String(currentNum))
+                        .padding(.all, 20)
                 }
                 
                 Spacer()
@@ -60,10 +63,9 @@ struct ViewController: View {
                         Button(action: {
                             //TODO
                         }) {
-                
                             Text("+")
                                 .bold()
-                                .padding(.all, 10)
+                                .padding(.all, 20)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
@@ -75,7 +77,7 @@ struct ViewController: View {
                             }) {
                             Text("-")
                                 .bold()
-                                .padding(.all, 10)
+                                .padding(.all, 20)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
@@ -87,7 +89,7 @@ struct ViewController: View {
                             }) {
                             Text("*")
                                 .bold()
-                                .padding(.all, 10)
+                                .padding(.all, 20)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
@@ -99,7 +101,7 @@ struct ViewController: View {
                             }) {
                             Text("/")
                                 .bold()
-                                .padding(.all, 10)
+                                .padding(.all, 20)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
@@ -119,7 +121,7 @@ struct ViewController: View {
                     
                                 Text("7")
                                     .bold()
-                                    .padding(.all, 10)
+                                    .padding(.all, 20)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                         }
@@ -131,7 +133,7 @@ struct ViewController: View {
                                 }) {
                                 Text("8")
                                     .bold()
-                                    .padding(.all, 10)
+                                    .padding(.all, 20)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                         }
@@ -143,7 +145,7 @@ struct ViewController: View {
                                 }) {
                                 Text("9")
                                     .bold()
-                                    .padding(.all, 10)
+                                    .padding(.all, 20)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                         }
@@ -163,7 +165,7 @@ struct ViewController: View {
                     
                                 Text("4")
                                     .bold()
-                                    .padding(.all, 10)
+                                    .padding(.all, 20)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                         }
@@ -175,7 +177,7 @@ struct ViewController: View {
                                 }) {
                                 Text("5")
                                     .bold()
-                                    .padding(.all, 10)
+                                    .padding(.all, 20)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                         }
@@ -187,7 +189,7 @@ struct ViewController: View {
                                 }) {
                                 Text("6")
                                     .bold()
-                                    .padding(.all, 10)
+                                    .padding(.all, 20)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                         }
@@ -207,7 +209,7 @@ struct ViewController: View {
                 
                             Text("1")
                                 .bold()
-                                .padding(.all, 10)
+                                .padding(.all, 20)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
@@ -219,7 +221,7 @@ struct ViewController: View {
                             }) {
                             Text("2")
                                 .bold()
-                                .padding(.all, 10)
+                                .padding(.all, 20)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
@@ -231,7 +233,7 @@ struct ViewController: View {
                             }) {
                             Text("3")
                                 .bold()
-                                .padding(.all, 10)
+                                .padding(.all, 20)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
@@ -251,7 +253,7 @@ struct ViewController: View {
                 
                             Text("0")
                                 .bold()
-                                .padding(.all, 10)
+                                .padding(.all, 20)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
@@ -264,7 +266,7 @@ struct ViewController: View {
                             }) {
                             Text(".")
                                 .bold()
-                                .padding(.all, 10)
+                                .padding(.all, 20)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
@@ -277,7 +279,7 @@ struct ViewController: View {
                             }) {
                             Text("=")
                                 .bold()
-                                .padding(.all, 10)
+                                .padding(.all, 20)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
