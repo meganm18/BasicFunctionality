@@ -474,11 +474,11 @@ struct ViewController: View {
             case .add:
                 switch self.operator1 {
                     case .add:
-                        self.prevNum2 += self.prevNum1 + self.currentNum
+                        self.prevNum2 += self.prevNum1
                         self.prevNum1 = self.currentNum
                         self.operator2 = self.operator1
                     case .subtract:
-                        self.prevNum2 += self.prevNum1 - self.currentNum
+                        self.prevNum2 += self.prevNum1
                         self.prevNum1 = self.currentNum
                         self.operator2 = self.operator1
                     case .multiply:
@@ -491,11 +491,11 @@ struct ViewController: View {
             case .subtract:
                 switch self.operator1 {
                     case .add:
-                        self.prevNum2 = self.prevNum2 - self.prevNum1 + self.currentNum
+                        self.prevNum2 = self.prevNum2 - self.prevNum1
                         self.prevNum1 = self.currentNum
                         self.operator2 = self.operator1
                     case .subtract:
-                        self.prevNum2 = self.prevNum2 - self.prevNum1 - self.currentNum
+                        self.prevNum2 = self.prevNum2 - self.prevNum1
                         self.prevNum1 = self.currentNum
                         self.operator2 = self.operator1
                     case .multiply:
