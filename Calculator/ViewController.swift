@@ -14,12 +14,12 @@ enum Operator {
 }
 
 struct ViewController: View {
-    @State private var currentNum = 0
+    @State private var currentNum = 0.0
     @State private var done = false
     @State private var operator1 = Operator.add
-    @State private var prevNum1 = 0
+    @State private var prevNum1 = 0.0
     @State private var operator2 = Operator.add
-    @State private var prevNum2 = 0
+    @State private var prevNum2 = 0.0
     @State private var error = false
     
     var body: some View {
@@ -79,7 +79,7 @@ struct ViewController: View {
                 
                 //Current Result
                 if(self.done) {
-                    if(self.prevNum2 == 0 && (self.operator2 == Operator.add)) {
+                    if(self.prevNum2 == 0.0 && (self.operator2 == Operator.add)) {
                         Text(String(self.prevNum1))
                     }
                     else {
@@ -384,15 +384,15 @@ struct ViewController: View {
     }
     
     func reset(){
-        self.currentNum = 0
-        self.prevNum1 = 0
-        self.prevNum2 = 0
+        self.currentNum = 0.0
+        self.prevNum1 = 0.0
+        self.prevNum2 = 0.0
         self.operator1 = Operator.add
         self.operator2 = Operator.add
     }
     
     func solveAddSubtract() {
-        if ((self.currentNum == 0 && self.operator1 == Operator.divide) || (self.prevNum1 == 0 && self.operator2 == Operator.divide)){
+        if ((self.currentNum == 0.0 && self.operator1 == Operator.divide) || (self.prevNum1 == 0.0 && self.operator2 == Operator.divide)){
             self.error = true
             self.reset()
         }
@@ -444,15 +444,15 @@ struct ViewController: View {
                         self.prevNum1 = self.prevNum2 / self.prevNum1 / self.currentNum
                 }
             }
-            self.currentNum = 0
-            self.prevNum2 = 0
+            self.currentNum = 0.0
+            self.prevNum2 = 0.0
             self.operator2 = Operator.add
             self.done = true
         }
     }
         
         func solveMultiplyDivide() {
-        if ((self.currentNum == 0 && self.operator1 == Operator.divide) || (self.prevNum1 == 0 && self.operator2 == Operator.divide)){
+            if ((self.currentNum == 0.0 && self.operator1 == Operator.divide) || (self.prevNum1 == 0.0 && self.operator2 == Operator.divide)){
             self.error = true
             self.reset()
         }
@@ -500,11 +500,11 @@ struct ViewController: View {
                         self.operator2 = self.operator1
                     case .multiply:
                         self.prevNum1 *= self.prevNum2 * self.currentNum
-                        self.prevNum2 = 0
+                        self.prevNum2 = 0.0
                         self.operator2 = Operator.add
                     case .divide:
                         self.prevNum1 = self.prevNum2 * self.prevNum1 / self.currentNum
-                        self.prevNum2 = 0
+                        self.prevNum2 = 0.0
                         self.operator2 = Operator.add
                 }
             case .divide:
@@ -520,15 +520,15 @@ struct ViewController: View {
                     case .multiply:
                         self.prevNum1 = self.prevNum2 /
                             self.prevNum1 * self.currentNum
-                        self.prevNum2 = 0
+                        self.prevNum2 = 0.0
                         self.operator2 = Operator.add
                     case .divide:
                         self.prevNum1 = self.prevNum2 / self.prevNum1 / self.currentNum
-                        self.prevNum2 = 0
+                        self.prevNum2 = 0.0
                         self.operator2 = Operator.add
                 }
             }
-            self.currentNum = 0
+            self.currentNum = 0.0
             self.done = true
         }
     }
