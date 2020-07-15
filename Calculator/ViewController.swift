@@ -78,7 +78,7 @@ struct ViewController: View {
                 Text("self.currentNum: " + String(self.currentNum))
                 
                 //Current Result
-                if(done) {
+                if(self.done) {
                     if(self.prevNum2 == 0 && (self.operator2 == Operator.add)) {
                         Text(String(self.prevNum1))
                     }
@@ -101,7 +101,11 @@ struct ViewController: View {
                     Text(String(currentNum))
                 }
                 
-                Spacer()
+                if(self.error){
+                    Text("ERROR: Divide By 0")
+                }
+                
+                //Spacer()
                 
                 //Buttons
                 VStack{
@@ -334,7 +338,6 @@ struct ViewController: View {
                                 .background(Color.black)
                         }
                         
-                        
                         Spacer()
                         
                         Button(action: {
@@ -346,7 +349,6 @@ struct ViewController: View {
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
-                        
                         
                         Spacer()
                         
@@ -361,9 +363,19 @@ struct ViewController: View {
                                 .background(Color.black)
                         }
                         
-                        
                         Spacer()
                         
+                        Button(action: {
+                            self.reset()
+                        }) {
+                            Text("Clear")
+                            .bold()
+                            .padding(.all, 10)
+                            .foregroundColor(.white)
+                            .background(Color.black)
+                        }
+                        
+                        Spacer()
                     }
                 }
                // Spacer()
