@@ -333,6 +333,25 @@ struct ViewController: View {
                         Spacer()
                         
                         Button(action: {
+                            if(self.decimalNum == 0){
+                                self.currentNum = self.currentNum * 10
+                            }
+                            else{
+                                self.decimalNum += 1
+                            }
+                            self.error = false
+                            self.done = false
+                            }) {
+                            Text("0")
+                                .bold()
+                                .padding(.all, 10)
+                                .foregroundColor(.white)
+                                .background(Color.black)
+                        }
+                        
+                        Spacer()
+                        
+                        Button(action: {
                             var multiplier = 10.0
                             var addend = 1.0
                             if (self.decimalNum != 0){
@@ -408,21 +427,15 @@ struct ViewController: View {
                     HStack {
                         Spacer()
                         
+                        //Sign Button
                         Button(action: {
-                            if(self.decimalNum == 0){
-                                self.currentNum = self.currentNum * 10
-                            }
-                            else{
-                                self.decimalNum += 1
-                            }
-                            self.error = false
-                            self.done = false
-                            }) {
-                            Text("0")
-                                .bold()
-                                .padding(.all, 10)
-                                .foregroundColor(.white)
-                                .background(Color.black)
+                            self.currentNum *= -1
+                        }) {
+                            Text("+/-")
+                            .bold()
+                            .padding(.all, 10)
+                            .foregroundColor(.white)
+                            .background(Color.black)
                         }
                         
                         Spacer()
