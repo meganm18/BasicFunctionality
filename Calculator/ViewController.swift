@@ -21,6 +21,7 @@ struct ViewController: View {
     @State private var operator2 = Operator.add
     @State private var prevNum2 = 0.0
     @State private var error = false
+    @State private var decimalNum = 0
     
     var body: some View {
         ZStack {
@@ -180,7 +181,16 @@ struct ViewController: View {
                         Spacer()
                         
                         Button(action: {
-                            self.currentNum = self.currentNum * 10 + 7
+                            var multiplier = 10.0
+                            var addend = 7.0
+                            if (self.decimalNum != 0){
+                                multiplier = 1
+                                self.decimalNum += 1
+                                for _ in 1...(self.decimalNum - 1) {
+                                    addend /= 10
+                                }
+                            }
+                            self.currentNum = self.currentNum * multiplier + addend
                             self.error = false
                             self.done = false
                                 }) {
@@ -194,7 +204,16 @@ struct ViewController: View {
                         Spacer()
                         
                         Button(action: {
-                                self.currentNum = self.currentNum * 10 + 8
+                                var multiplier = 10.0
+                                var addend = 8.0
+                                if (self.decimalNum != 0){
+                                    multiplier = 1
+                                    self.decimalNum += 1
+                                    for _ in 1...(self.decimalNum - 1) {
+                                        addend /= 10
+                                    }
+                                }
+                                self.currentNum = self.currentNum * multiplier + addend
                                 self.error = false
                                 self.done = false
                                 }) {
@@ -208,7 +227,16 @@ struct ViewController: View {
                         Spacer()
                         
                         Button(action: {
-                                self.currentNum = self.currentNum * 10 + 9
+                                var multiplier = 10.0
+                                var addend = 9.0
+                                if (self.decimalNum != 0){
+                                    multiplier = 1
+                                    self.decimalNum += 1
+                                    for _ in 1...(self.decimalNum - 1) {
+                                        addend /= 10
+                                    }
+                                }
+                                self.currentNum = self.currentNum * multiplier + addend
                                 self.error = false
                                 self.done = false
                                 }) {
@@ -229,7 +257,16 @@ struct ViewController: View {
                         Spacer()
                         
                         Button(action: {
-                                self.currentNum = self.currentNum * 10 + 4
+                                var multiplier = 10.0
+                                var addend = 4.0
+                                if (self.decimalNum != 0){
+                                    multiplier = 1
+                                    self.decimalNum += 1
+                                    for _ in 1...(self.decimalNum - 1) {
+                                        addend /= 10
+                                    }
+                                }
+                                self.currentNum = self.currentNum * multiplier + addend
                                 self.error = false
                                 self.done = false
                                 }) {
@@ -243,7 +280,16 @@ struct ViewController: View {
                         Spacer()
                         
                         Button(action: {
-                                self.currentNum = self.currentNum * 10 + 5
+                                var multiplier = 10.0
+                                var addend = 5.0
+                                if (self.decimalNum != 0){
+                                    multiplier = 1
+                                    self.decimalNum += 1
+                                    for _ in 1...(self.decimalNum - 1) {
+                                        addend /= 10
+                                    }
+                                }
+                                self.currentNum = self.currentNum * multiplier + addend
                                 self.error = false
                                 self.done = false
                                 }) {
@@ -257,7 +303,16 @@ struct ViewController: View {
                         Spacer()
                         
                         Button(action: {
-                                self.currentNum = self.currentNum * 10 + 6
+                                var multiplier = 10.0
+                                var addend = 6.0
+                                if (self.decimalNum != 0){
+                                    multiplier = 1
+                                    self.decimalNum += 1
+                                    for _ in 1...(self.decimalNum - 1) {
+                                        addend /= 10
+                                    }
+                                }
+                                self.currentNum = self.currentNum * multiplier + addend
                                 self.error = false
                                 self.done = false
                                 }) {
@@ -278,7 +333,16 @@ struct ViewController: View {
                         Spacer()
                         
                         Button(action: {
-                            self.currentNum = self.currentNum * 10 + 1
+                            var multiplier = 10.0
+                            var addend = 1.0
+                            if (self.decimalNum != 0){
+                                multiplier = 1
+                                self.decimalNum += 1
+                                for _ in 1...(self.decimalNum - 1) {
+                                    addend /= 10
+                                }
+                            }
+                            self.currentNum = self.currentNum * multiplier + addend
                             self.error = false
                             self.done = false
                             }) {
@@ -292,7 +356,16 @@ struct ViewController: View {
                         Spacer()
                         
                         Button(action: {
-                            self.currentNum = self.currentNum * 10 + 2
+                            var multiplier = 10.0
+                            var addend = 2.0
+                            if (self.decimalNum != 0){
+                                multiplier = 1
+                                self.decimalNum += 1
+                                for _ in 1...(self.decimalNum - 1) {
+                                    addend /= 10
+                                }
+                            }
+                            self.currentNum = self.currentNum * multiplier + addend
                             self.error = false
                             self.done = false
                             }) {
@@ -306,7 +379,16 @@ struct ViewController: View {
                         Spacer()
                         
                         Button(action: {
-                            self.currentNum = self.currentNum * 10 + 3
+                            var multiplier = 10.0
+                            var addend = 3.0
+                            if (self.decimalNum != 0){
+                                multiplier = 1
+                                self.decimalNum += 1
+                                for _ in 1...(self.decimalNum - 1) {
+                                    addend /= 10
+                                }
+                            }
+                            self.currentNum = self.currentNum * multiplier + addend
                             self.error = false
                             self.done = false
                             }) {
@@ -327,7 +409,12 @@ struct ViewController: View {
                         Spacer()
                         
                         Button(action: {
-                            self.currentNum = self.currentNum * 10
+                            if(self.decimalNum == 0){
+                                self.currentNum = self.currentNum * 10
+                            }
+                            else{
+                                self.decimalNum += 1
+                            }
                             self.error = false
                             self.done = false
                             }) {
@@ -341,7 +428,7 @@ struct ViewController: View {
                         Spacer()
                         
                         Button(action: {
-                            //TODO
+                            self.decimalNum += 1
                             }) {
                             Text(".")
                                 .bold()
@@ -389,6 +476,7 @@ struct ViewController: View {
         self.prevNum2 = 0.0
         self.operator1 = Operator.add
         self.operator2 = Operator.add
+        self.decimalNum = 0
     }
     
     func solveAddSubtract() {
