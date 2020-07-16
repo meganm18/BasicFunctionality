@@ -38,45 +38,16 @@ struct ViewController: View {
             
             //Content
             VStack {
-                //Spacer()
+                Spacer()
                 
                 //Title
                 Text("Calculator")
                     .bold()
+                    .frame(maxWidth: .infinity, maxHeight: 100)
                     .foregroundColor(.white)
                     .scaleEffect(3)
                 
                 Spacer()
-                
-                
-                // FOR TESTING PURPOSES
-                Text("self.prevNum2: " + String(self.prevNum2))
-                if(self.operator2 == Operator.add){
-                    Text("self.operator2: Add")
-                }
-                else if(self.operator2 == Operator.subtract){
-                    Text("self.operator2: Subtract")
-                }
-                else if(self.operator2 == Operator.multiply){
-                    Text("self.operator2: Multiply")
-                }
-                else{
-                    Text("self.operator2: Divide")
-                }
-                Text("self.prevNum1: " + String(self.prevNum1))
-                if(self.operator1 == Operator.add){
-                    Text("self.operator1: Add")
-                }
-                else if(self.operator1 == Operator.subtract){
-                    Text("self.operator1: Subtract")
-                }
-                else if(self.operator1 == Operator.multiply){
-                    Text("self.operator1: Multiply")
-                }
-                else{
-                    Text("self.operator2: Divide")
-                }
-                Text("self.currentNum: " + String(self.currentNum))
                 
                 //Current Result
                 if(self.done) {
@@ -100,20 +71,21 @@ struct ViewController: View {
                 }
                 else{
                     Text(String(currentNum))
+                        .frame(maxHeight: 100)
                 }
                 
                 if(self.error){
                     Text("ERROR: Divide By 0")
+                        .foregroundColor(.red)
                 }
                 
-                //Spacer()
+                Spacer()
                 
                 //Buttons
                 VStack{
-                    Spacer()
-                    
                     HStack {
                         Spacer()
+                            .frame(maxWidth: 20)
                         
                         Button(action: {
                             self.solveAddSubtract()
@@ -121,13 +93,11 @@ struct ViewController: View {
                         }) {
                             Text("+")
                                 .bold()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
-                        
-                        Spacer()
-                        
                         Button(action: {
                             self.solveAddSubtract()
                             if(!self.error){
@@ -136,13 +106,11 @@ struct ViewController: View {
                             }) {
                             Text("-")
                                 .bold()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
-                        
-                        Spacer()
-                        
                         Button(action: {
                             self.solveMultiplyDivide()
                             if(!self.error){
@@ -151,13 +119,11 @@ struct ViewController: View {
                             }) {
                             Text("*")
                                 .bold()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
-                        
-                        Spacer()
-                        
                         Button(action: {
                             self.solveMultiplyDivide()
                             if(!self.error){
@@ -166,20 +132,18 @@ struct ViewController: View {
                             }) {
                             Text("/")
                                 .bold()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
-                        
                         Spacer()
-                        
+                            .frame(maxWidth: 20)
                     }
                     
-                    Spacer()
-
                     HStack {
                         Spacer()
-                        
+                            .frame(maxWidth: 20)
                         Button(action: {
                             var multiplier = 10.0
                             var addend = 7.0
@@ -196,13 +160,11 @@ struct ViewController: View {
                                 }) {
                                 Text("7")
                                     .bold()
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .padding(.all, 10)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                         }
-                        
-                        Spacer()
-                        
                         Button(action: {
                                 var multiplier = 10.0
                                 var addend = 8.0
@@ -219,13 +181,11 @@ struct ViewController: View {
                                 }) {
                                 Text("8")
                                     .bold()
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .padding(.all, 10)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                         }
-                        
-                        Spacer()
-                        
                         Button(action: {
                                 var multiplier = 10.0
                                 var addend = 9.0
@@ -242,20 +202,18 @@ struct ViewController: View {
                                 }) {
                                 Text("9")
                                     .bold()
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .padding(.all, 10)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                         }
-                        
                         Spacer()
-                        
-                        }
-                    
-                    Spacer()
+                            .frame(maxWidth: 20)
+                    }
                     
                     HStack {
                         Spacer()
-                        
+                            .frame(maxWidth: 20)
                         Button(action: {
                                 var multiplier = 10.0
                                 var addend = 4.0
@@ -272,13 +230,11 @@ struct ViewController: View {
                                 }) {
                                 Text("4")
                                     .bold()
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .padding(.all, 10)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                         }
-                        
-                        Spacer()
-                        
                         Button(action: {
                                 var multiplier = 10.0
                                 var addend = 5.0
@@ -295,13 +251,11 @@ struct ViewController: View {
                                 }) {
                                 Text("5")
                                     .bold()
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .padding(.all, 10)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                         }
-                        
-                        Spacer()
-                        
                         Button(action: {
                                 var multiplier = 10.0
                                 var addend = 6.0
@@ -318,20 +272,18 @@ struct ViewController: View {
                                 }) {
                                 Text("6")
                                     .bold()
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .padding(.all, 10)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                         }
-                        
                         Spacer()
-                        
+                            .frame(maxWidth: 20)
                     }
-                    
-                    Spacer()
                     
                     HStack {
                         Spacer()
-                        
+                            .frame(maxWidth: 20)
                         Button(action: {
                             if(self.decimalNum == 0){
                                 self.currentNum = self.currentNum * 10
@@ -344,13 +296,11 @@ struct ViewController: View {
                             }) {
                             Text("0")
                                 .bold()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
-                        
-                        Spacer()
-                        
                         Button(action: {
                             var multiplier = 10.0
                             var addend = 1.0
@@ -367,13 +317,11 @@ struct ViewController: View {
                             }) {
                             Text("1")
                                 .bold()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
-                        
-                        Spacer()
-                        
                         Button(action: {
                             var multiplier = 10.0
                             var addend = 2.0
@@ -390,13 +338,11 @@ struct ViewController: View {
                             }) {
                             Text("2")
                                 .bold()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
-                        
-                        Spacer()
-                        
                         Button(action: {
                             var multiplier = 10.0
                             var addend = 3.0
@@ -413,19 +359,17 @@ struct ViewController: View {
                             }) {
                             Text("3")
                                 .bold()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
-                        
                         Spacer()
-                        
+                            .frame(maxWidth: 20)
                     }
-                    
-                    Spacer()
-                    
                     HStack {
                         Spacer()
+                            .frame(maxWidth: 20)
                         
                         //Sign Button
                         Button(action: {
@@ -433,52 +377,48 @@ struct ViewController: View {
                         }) {
                             Text("+/-")
                             .bold()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .padding(.all, 10)
                             .foregroundColor(.white)
                             .background(Color.black)
                         }
-                        
-                        Spacer()
-                        
                         Button(action: {
                             self.decimalNum += 1
                             }) {
                             Text(".")
                                 .bold()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
-                        
-                        Spacer()
-                        
                         Button(action: {
                             self.solveEqual()
                             self.operator1 = Operator.add
                             }) {
                             Text("=")
                                 .bold()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
                                 .background(Color.black)
                         }
-                        
-                        Spacer()
-                        
                         Button(action: {
                             self.reset()
                         }) {
                             Text("Clear")
                             .bold()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .padding(.all, 10)
                             .foregroundColor(.white)
                             .background(Color.black)
                         }
-                        
                         Spacer()
+                            .frame(maxWidth: 20)
                     }
                 }
-               // Spacer()
+               Spacer()
+                .frame(maxHeight: 20)
             }
         }
     }
