@@ -440,7 +440,7 @@ struct ViewController: View {
                         Spacer()
                         
                         Button(action: {
-                            self.solveAddSubtract()
+                            self.solveEqual()
                             self.operator1 = Operator.add
                             }) {
                             Text("=")
@@ -536,11 +536,12 @@ struct ViewController: View {
             self.prevNum2 = 0.0
             self.operator2 = Operator.add
             self.done = true
+            self.decimalNum = 0
         }
     }
         
         func solveMultiplyDivide() {
-            if ((self.currentNum == 0.0 && self.operator1 == Operator.divide) || (self.prevNum1 == 0.0 && self.operator2 == Operator.divide)){
+        if ((self.currentNum == 0.0 && self.operator1 == Operator.divide) || (self.prevNum1 == 0.0 && self.operator2 == Operator.divide)){
             self.error = true
             self.reset()
         }
@@ -618,6 +619,68 @@ struct ViewController: View {
             }
             self.currentNum = 0.0
             self.done = true
+            self.decimalNum = 0
+        }
+    }
+    
+    func solveEqual() {
+        if ((self.currentNum == 0.0 && self.operator1 == Operator.divide) || (self.prevNum1 == 0.0 && self.operator2 == Operator.divide)){
+            self.error = true
+            self.reset()
+        }
+        else {
+            switch self.operator2 {
+            case .add:
+                switch self.operator1 {
+                    case .add:
+                        self.currentNum += self.prevNum1 + self.prevNum2
+                    case .subtract:
+                        self.currentNum = self.prevNum2 + self.prevNum1 - self.currentNum
+                    case .multiply:
+                        self.currentNum = self.prevNum2 + self.prevNum1 * self.currentNum
+                    case .divide:
+                        self.currentNum = self.prevNum2 + self.prevNum1 / self.currentNum
+                }
+            case .subtract:
+                switch self.operator1 {
+                    case .add:
+                        self.currentNum = self.prevNum2 - self.prevNum1 + self.currentNum
+                    case .subtract:
+                        self.currentNum = self.prevNum2 - self.prevNum1 - self.currentNum
+                    case .multiply:
+                        self.currentNum = self.prevNum2 - self.prevNum1 * self.currentNum
+                    case .divide:
+                        self.currentNum = self.prevNum2 - self.prevNum1 / self.currentNum
+                }
+            case .multiply:
+                switch self.operator1 {
+                    case .add:
+                        self.currentNum = self.prevNum2 * self.prevNum1 + self.currentNum
+                    case .subtract:
+                        self.currentNum = self.prevNum2 * self.prevNum1 - self.currentNum
+                    case .multiply:
+                        self.currentNum *= self.prevNum1 * self.prevNum2
+                    case .divide:
+                        self.currentNum = self.prevNum2 * self.prevNum1 / self.currentNum
+                }
+            case .divide:
+                switch self.operator1 {
+                    case .add:
+                        self.currentNum = self.prevNum2 / self.prevNum1 + self.currentNum
+                    case .subtract:
+                        self.currentNum = self.prevNum2 / self.prevNum1 - self.currentNum
+                    case .multiply:
+                        self.currentNum = self.prevNum2 /
+                            self.prevNum1 * self.currentNum
+                    case .divide:
+                        self.currentNum = self.prevNum2 / self.prevNum1 / self.currentNum
+                }
+            }
+            self.prevNum1 = 0.0
+            self.prevNum2 = 0.0
+            self.operator2 = Operator.add
+            self.done = false
+            self.decimalNum = 0
         }
     }
 }
