@@ -48,36 +48,36 @@ struct ViewController: View {
                 if(self.done) {
                     if(self.prevNum2 == 0.0 && (self.operator2 == Operator.add)) {
                         Text(String(self.prevNum1))
+                            .scaleEffect(3)
                             .frame(maxHeight: 100)
-                            .scaleEffect(1.5)
                     }
                     else {
                         if(self.operator2 == Operator.add){
                             Text(String(self.prevNum2) + " + " + String(self.prevNum1))
+                                .scaleEffect(3)
                                 .frame(maxHeight: 100)
-                                .scaleEffect(1.5)
                         }
                         else if(self.operator2 == Operator.subtract){
                             Text(String(self.prevNum2) + " - " + String(self.prevNum1))
+                                .scaleEffect(3)
                                 .frame(maxHeight: 100)
-                                .scaleEffect(1.5)
                         }
                         else if(self.operator2 == Operator.multiply){
                             Text(String(self.prevNum2) + " * " + String(self.prevNum1))
+                                .scaleEffect(3)
                                 .frame(maxHeight: 100)
-                                .scaleEffect(1.5)
                         }
                         else{
                             Text(String(self.prevNum2) + " / " + String(self.prevNum1))
+                                .scaleEffect(3)
                                 .frame(maxHeight: 100)
-                                .scaleEffect(1.5)
                         }
                     }
                 }
                 else{
                     Text(String(currentNum))
+                        .scaleEffect(3)
                         .frame(maxHeight: 100)
-                        .scaleEffect(1.5)
                 }
                 
                 if(self.error){
@@ -104,9 +104,10 @@ struct ViewController: View {
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
-                                .background(Color.black)
+                                .background(Color.gray)
                                 .padding(.all, 5)
                         }
+                            .cornerRadius(60)
                         Button(action: {
                             self.solveAddSubtract()
                             if(!self.error){
@@ -119,9 +120,10 @@ struct ViewController: View {
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
-                                .background(Color.black)
+                                .background(Color.gray)
                                 .padding(.all, 5)
                         }
+                            .cornerRadius(60)
                         Button(action: {
                             self.solveMultiplyDivide()
                             if(!self.error){
@@ -134,9 +136,10 @@ struct ViewController: View {
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
-                                .background(Color.black)
+                                .background(Color.gray)
                                 .padding(.all, 5)
                         }
+                            .cornerRadius(60)
                         Button(action: {
                             self.solveMultiplyDivide()
                             if(!self.error){
@@ -149,9 +152,10 @@ struct ViewController: View {
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
-                                .background(Color.black)
+                                .background(Color.gray)
                                 .padding(.all, 5)
                         }
+                            .cornerRadius(60)
                         Spacer()
                             .frame(maxWidth: 20)
                     }
@@ -311,25 +315,7 @@ struct ViewController: View {
                     HStack {
                         Spacer()
                             .frame(maxWidth: 20)
-                        Button(action: {
-                            if(self.decimalNum == 0){
-                                self.currentNum = self.currentNum * 10
-                            }
-                            else{
-                                self.decimalNum += 1
-                            }
-                            self.error = false
-                            self.done = false
-                            }) {
-                            Text("0")
-                                .bold()
-                                .scaleEffect(1.5)
-                                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                .padding(.all, 10)
-                                .foregroundColor(.white)
-                                .background(Color.black)
-                                .padding(.all, 5)
-                        }
+                        
                         Button(action: {
                             var multiplier = 10.0
                             var addend = 1.0
@@ -405,19 +391,24 @@ struct ViewController: View {
                     HStack {
                         Spacer()
                             .frame(maxWidth: 20)
-                        
-                        //Sign Button
                         Button(action: {
-                            self.currentNum *= -1
-                        }) {
-                            Text("+/-")
-                            .bold()
-                            .scaleEffect(1.5)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .padding(.all, 10)
-                            .foregroundColor(.white)
-                            .background(Color.black)
-                            .padding(.all, 5)
+                            if(self.decimalNum == 0){
+                                self.currentNum = self.currentNum * 10
+                            }
+                            else{
+                                self.decimalNum += 1
+                            }
+                            self.error = false
+                            self.done = false
+                            }) {
+                            Text("0")
+                                .bold()
+                                .scaleEffect(1.5)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .padding(.all, 10)
+                                .foregroundColor(.white)
+                                .background(Color.black)
+                                .padding(.all, 5)
                         }
                         Button(action: {
                             self.decimalNum += 1
@@ -431,6 +422,41 @@ struct ViewController: View {
                                 .background(Color.black)
                                 .padding(.all, 5)
                         }
+                        //Sign Button
+                        Button(action: {
+                            self.currentNum *= -1
+                        }) {
+                            Text("+/-")
+                            .bold()
+                            .scaleEffect(1.5)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding(.all, 10)
+                            .foregroundColor(.white)
+                            .background(Color.black)
+                            .padding(.all, 5)
+                        }
+                        
+                        Spacer()
+                            .frame(maxWidth: 20)
+                    }
+                    
+                    HStack{
+                        Spacer()
+                            .frame(maxWidth: 20)
+                    
+                        Button(action: {
+                            self.reset()
+                        }) {
+                            Text("Clear")
+                            .bold()
+                            .scaleEffect(1.5)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding(.all, 10)
+                            .foregroundColor(.white)
+                            .background(Color.gray)
+                            .padding(.all, 5)
+                        }
+                            .cornerRadius(60)
                         Button(action: {
                             self.solveEqual()
                             self.operator1 = Operator.add
@@ -441,21 +467,10 @@ struct ViewController: View {
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.all, 10)
                                 .foregroundColor(.white)
-                                .background(Color.black)
+                                .background(Color.gray)
                                 .padding(.all, 5)
                         }
-                        Button(action: {
-                            self.reset()
-                        }) {
-                            Text("Clear")
-                            .bold()
-                            .scaleEffect(1.5)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .padding(.all, 10)
-                            .foregroundColor(.white)
-                            .background(Color.black)
-                            .padding(.all, 5)
-                        }
+                            .cornerRadius(60)
                         Spacer()
                             .frame(maxWidth: 20)
                     }
