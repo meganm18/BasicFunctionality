@@ -47,37 +47,46 @@ struct ViewController: View {
                 //Current Result
                 if(self.done) {
                     if(self.prevNum2 == 0.0 && (self.operator2 == Operator.add)) {
-                        Text(String(self.prevNum1))
+                        Text(String(format: "%.5f", self.prevNum1))
                             .scaleEffect(3)
-                            .frame(maxHeight: 100)
+                            .frame(maxWidth: .infinity, maxHeight: 100)
                     }
                     else {
                         if(self.operator2 == Operator.add){
-                            Text(String(self.prevNum2) + " + " + String(self.prevNum1))
+                            Text(String(format: "%.3f", self.prevNum2) + " + " + String(format: "%.3f", self.prevNum1))
                                 .scaleEffect(3)
-                                .frame(maxHeight: 100)
+                                .frame(maxWidth: .infinity, maxHeight: 100)
                         }
                         else if(self.operator2 == Operator.subtract){
-                            Text(String(self.prevNum2) + " - " + String(self.prevNum1))
+                            Text(String(format: "%.3f", self.prevNum2) + " - " + String(format: "%.3f", self.prevNum1))
                                 .scaleEffect(3)
-                                .frame(maxHeight: 100)
+                                .frame(maxWidth: .infinity, maxHeight: 100)
                         }
                         else if(self.operator2 == Operator.multiply){
-                            Text(String(self.prevNum2) + " * " + String(self.prevNum1))
+                            Text(String(format: "%.3f", self.prevNum2) + " * " + String(format: "%.3f", self.prevNum1))
                                 .scaleEffect(3)
-                                .frame(maxHeight: 100)
+                                .frame(maxWidth: .infinity, maxHeight: 100)
                         }
                         else{
-                            Text(String(self.prevNum2) + " / " + String(self.prevNum1))
+                            Text(String(format: "%.3f", self.prevNum2) + " / " + String(format: "%.3f", self.prevNum1))
                                 .scaleEffect(3)
-                                .frame(maxHeight: 100)
+                                .frame(maxWidth: .infinity, maxHeight: 100)
                         }
                     }
                 }
                 else{
-                    Text(String(currentNum))
-                        .scaleEffect(3)
-                        .frame(maxHeight: 100)
+                  /* // Uncomment to make right-aligned
+                     HStack{
+                        Spacer()
+                            .frame(maxWidth: .infinity)*/
+                        
+                        Text(String(format: "%.5f", currentNum))
+                            .scaleEffect(3)
+                            .frame(maxWidth: .infinity, maxHeight: 100)
+                        
+                   /*     Spacer()
+                            .frame(maxWidth: 30)
+                    }*/
                 }
                 
                 if(self.error){
