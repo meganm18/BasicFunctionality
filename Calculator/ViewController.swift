@@ -41,6 +41,7 @@ struct ViewController: View {
                     .frame(maxWidth: .infinity, maxHeight: 100)
                     .foregroundColor(.white)
                     .scaleEffect(3)
+                    .padding(.all, 40)
                 
                 Spacer()
                 
